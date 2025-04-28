@@ -1,0 +1,758 @@
+{
+  "address": "0xE6dAEE6c1716091F41158b58F1e68401eb43A69c",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_coin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_pToken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tokenPrice",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "AlreadyInitiated",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AlreadyRefunded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AmountZero",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "HardCapReached",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidCap",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidPrice",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidTime",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NoTokensToClaim",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotEnoughSCC",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotInitiated",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotParticipated",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotTime",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "RefundNotInitiated",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SoftCapNotReached",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SoftCapReached",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "TFailed",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokensDeposited",
+          "type": "uint256"
+        }
+      ],
+      "name": "ICOInitiated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "usdtAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokensReceived",
+          "type": "uint256"
+        }
+      ],
+      "name": "TokensPurchased",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pTAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "claimPaymentToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "claimSCCoin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "emergencyWithdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEndTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getHardCap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getIsInitiated",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getIsRefundInitiated",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getIsSoftCapReached",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPaymentToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getSoftCap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getSolarChainCoin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStartTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTokenPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTotalSold",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserInfo",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokensPurchased",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokensClaimed",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "remainToClaim",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountPaid",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct SolarChainICO.UserInfo",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_softCap",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_hardCap",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_endTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "initiateICO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "initiateRefundPolicy",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_newStartTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_newEndTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateStartandEndTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_newPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateTokenPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x3a9297960fdd840152299d4736c40b8ca7c8fd7fac784e74c97baac3ecace520",
+  "receipt": {
+    "to": null,
+    "from": "0x6f55456D56d3B841aeC061ad613460ABF93Bc2DA",
+    "contractAddress": "0xE6dAEE6c1716091F41158b58F1e68401eb43A69c",
+    "transactionIndex": 155,
+    "gasUsed": "1677654",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000001000000000000000000000020000000000000000000800000000000000000000000000000000400000000000000000000000000000000000000000002000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000020000000000000000000000002000000000000000000000000000000000000000000",
+    "blockHash": "0x6daea83a3f090699c4692ae73eacda7438d47091a6a5612e6e745035b3ea2022",
+    "transactionHash": "0x3a9297960fdd840152299d4736c40b8ca7c8fd7fac784e74c97baac3ecace520",
+    "logs": [
+      {
+        "transactionIndex": 155,
+        "blockNumber": 8211576,
+        "transactionHash": "0x3a9297960fdd840152299d4736c40b8ca7c8fd7fac784e74c97baac3ecace520",
+        "address": "0xE6dAEE6c1716091F41158b58F1e68401eb43A69c",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000006f55456d56d3b841aec061ad613460abf93bc2da"
+        ],
+        "data": "0x",
+        "logIndex": 278,
+        "blockHash": "0x6daea83a3f090699c4692ae73eacda7438d47091a6a5612e6e745035b3ea2022"
+      }
+    ],
+    "blockNumber": 8211576,
+    "cumulativeGasUsed": "18377377",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x0F668C1f4f53556FC8c90030e14d33e875b10d2e",
+    "0x1B45059a73e96E380F75c8aC4e980d32f7560d21",
+    "10000000000000000000"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "bf3fcc93b7e4a5a8d108e0c5ce724565",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.28+commit.7893614a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_coin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_pToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenPrice\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"AlreadyInitiated\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AlreadyRefunded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AmountZero\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"HardCapReached\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidCap\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidPrice\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidTime\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NoTokensToClaim\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotEnoughSCC\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotInitiated\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotParticipated\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotTime\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RefundNotInitiated\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SoftCapNotReached\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SoftCapReached\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"TFailed\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokensDeposited\",\"type\":\"uint256\"}],\"name\":\"ICOInitiated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"usdtAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokensReceived\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_pTAmount\",\"type\":\"uint256\"}],\"name\":\"buyTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimPaymentToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimSCCoin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"emergencyWithdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEndTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getHardCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getIsInitiated\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getIsRefundInitiated\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getIsSoftCapReached\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPaymentToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSoftCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSolarChainCoin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStartTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTokenPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalSold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"getUserInfo\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokensPurchased\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokensClaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"remainToClaim\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountPaid\",\"type\":\"uint256\"}],\"internalType\":\"struct SolarChainICO.UserInfo\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_softCap\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hardCap\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_endTime\",\"type\":\"uint256\"}],\"name\":\"initiateICO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initiateRefundPolicy\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_newStartTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_newEndTime\",\"type\":\"uint256\"}],\"name\":\"updateStartandEndTime\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_newPrice\",\"type\":\"uint256\"}],\"name\":\"updateTokenPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/SolarChain.sol\":\"SolarChainICO\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/SolarChain.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.25;\\ninterface IERC20 {\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    event Approval(\\n        address indexed owner,\\n        address indexed spender,\\n        uint256 value\\n    );\\n\\n    function totalSupply() external view returns (uint256);\\n\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    function transfer(address to, uint256 value) external returns (bool);\\n\\n    function allowance(\\n        address owner,\\n        address spender\\n    ) external view returns (uint256);\\n\\n    function approve(address spender, uint256 value) external returns (bool);\\n\\n    function transferFrom(\\n        address from,\\n        address to,\\n        uint256 value\\n    ) external returns (bool);\\n}\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(\\n        address indexed previousOwner,\\n        address indexed newOwner\\n    );\\n\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\\ncontract SolarChainICO is Ownable {\\n    error RefundNotInitiated();\\n    error NoTokensToClaim();\\n    error NotParticipated();\\n    error SoftCapNotReached();\\n    error AlreadyRefunded();\\n    error NotTime();\\n    error SoftCapReached();\\n    // error SoftCapNotReached();\\n    error InvalidPrice();\\n    error HardCapReached();\\n    error NotEnoughSCC();\\n    error AmountZero();\\n    error NotInitiated();\\n    error TFailed();\\n    error AlreadyInitiated();\\n    error InvalidTime();\\n    error InvalidCap();\\n    IERC20 private solarChainCoin;\\n    IERC20 private paymentToken;\\n\\n    uint256 private tokenPrice;\\n    uint256 private hardCap;\\n    uint256 private softCap;\\n    uint256 private startTime;\\n    uint256 private endTime;\\n    uint256 private totalSold;\\n    bool private isInitiated;\\n    bool private isSoftCapReached;\\n    bool private isRefundInitiated;\\n\\n    struct UserInfo {\\n        address user;\\n        uint256 tokensPurchased;\\n        uint256 tokensClaimed;\\n        uint256 remainToClaim;\\n        uint256 amountPaid;\\n    }\\n\\n    mapping(address => UserInfo) private userInfo;\\n\\n    event ICOInitiated(uint256 tokensDeposited);\\n    event TokensPurchased(\\n        address indexed buyer,\\n        uint256 usdtAmount,\\n        uint256 tokensReceived\\n    );\\n\\n    constructor(\\n        address _coin,\\n        address _pToken,\\n        uint256 _tokenPrice\\n    ) Ownable(msg.sender) {\\n        solarChainCoin = IERC20(_coin);\\n        paymentToken = IERC20(_pToken);\\n        tokenPrice = _tokenPrice;\\n    }\\n\\n    function initiateICO(\\n        uint256 _amount,\\n        uint256 _softCap,\\n        uint256 _hardCap,\\n        uint256 _startTime,\\n        uint256 _endTime\\n    ) external onlyOwner {\\n        if (_startTime < block.timestamp) {\\n            revert InvalidTime();\\n        }\\n        if (isInitiated) {\\n            revert AlreadyInitiated();\\n        }\\n\\n        if (_amount <= 0) {\\n            revert AmountZero();\\n        }\\n        if (_softCap <= 0 || _hardCap <= 0) {\\n            revert InvalidCap();\\n        }\\n        softCap = _softCap;\\n        hardCap = _hardCap;\\n        startTime = _startTime;\\n        endTime = _endTime;\\n        bool success = solarChainCoin.transferFrom(\\n            msg.sender,\\n            address(this),\\n            _amount\\n        );\\n        if (!success) {\\n            revert TFailed();\\n        }\\n\\n        isInitiated = true;\\n        emit ICOInitiated(_amount);\\n    }\\n\\n    function buyTokens(uint256 _pTAmount) external {\\n        if (!isInitiated) {\\n            revert NotInitiated();\\n        }\\n        if (_pTAmount <= 0) {\\n            revert AmountZero();\\n        }\\n\\n        uint256 tokensToReceive = _pTAmount * tokenPrice * 10 ** 18;\\n\\n        if (tokensToReceive <= 0) {\\n            revert AmountZero();\\n        }\\n\\n        if (solarChainCoin.balanceOf(address(this)) < tokensToReceive) {\\n            revert NotEnoughSCC();\\n        }\\n\\n        bool pSuccess = paymentToken.transferFrom(\\n            msg.sender,\\n            owner(),\\n            _pTAmount\\n        );\\n        if (!pSuccess) {\\n            revert TFailed();\\n        }\\n        totalSold += tokensToReceive;\\n\\n        if (totalSold >= softCap) {\\n            isSoftCapReached = true;\\n        }\\n        if (totalSold > hardCap) {\\n            revert HardCapReached();\\n        }\\n        UserInfo storage user = userInfo[msg.sender];\\n        if (user.user == address(0)) {\\n            user.user = msg.sender;\\n        }\\n        user.tokensPurchased += tokensToReceive;\\n        user.amountPaid += _pTAmount;\\n        if (isSoftCapReached) {\\n            bool tokenSuccess = solarChainCoin.transfer(\\n                msg.sender,\\n                tokensToReceive\\n            );\\n            if (!tokenSuccess) {\\n                revert TFailed();\\n            }\\n        } else {\\n            userInfo[msg.sender].remainToClaim += tokensToReceive;\\n        }\\n\\n        emit TokensPurchased(msg.sender, _pTAmount, tokensToReceive);\\n    }\\n\\n    function updateTokenPrice(uint256 _newPrice) external onlyOwner {\\n        if (_newPrice <= 0) {\\n            revert InvalidPrice();\\n        }\\n        tokenPrice = _newPrice;\\n    }\\n\\n    function updateStartandEndTime(\\n        uint256 _newStartTime,\\n        uint256 _newEndTime\\n    ) external onlyOwner {\\n        startTime = _newStartTime;\\n        endTime = _newEndTime;\\n    }\\n\\n    function emergencyWithdraw(\\n        address _tokenAddress,\\n        uint256 _amount\\n    ) external onlyOwner {\\n        if (totalSold < softCap) {\\n            revert SoftCapNotReached();\\n        }\\n        IERC20(_tokenAddress).transfer(msg.sender, _amount);\\n    }\\n\\n    function initiateRefundPolicy() external onlyOwner {\\n        if (isSoftCapReached) {\\n            revert SoftCapReached();\\n        }\\n\\n        if (block.timestamp < endTime) {\\n            revert NotTime();\\n        }\\n        if (isRefundInitiated) {\\n            revert AlreadyRefunded();\\n        }\\n        isRefundInitiated = true;\\n    }\\n\\n    function claimSCCoin() external {\\n        if (!isSoftCapReached) {\\n            revert SoftCapNotReached();\\n        }\\n        UserInfo storage user = userInfo[msg.sender];\\n        if (user.user == address(0)) {\\n            revert NotParticipated();\\n        }\\n        if (user.remainToClaim <= 0) {\\n            revert NoTokensToClaim();\\n        }\\n        uint256 tokensToClaim = user.remainToClaim;\\n        user.remainToClaim = 0;\\n        bool tokenSuccess = solarChainCoin.transfer(msg.sender, tokensToClaim);\\n        if (!tokenSuccess) {\\n            revert TFailed();\\n        }\\n    }\\n\\n    function claimPaymentToken() external {\\n        if (!isRefundInitiated) {\\n            revert RefundNotInitiated();\\n        }\\n        UserInfo storage user = userInfo[msg.sender];\\n        if (user.user == address(0)) {\\n            revert NotParticipated();\\n        }\\n        if (user.amountPaid <= 0) {\\n            revert NoTokensToClaim();\\n        }\\n        uint256 amountToClaim = user.amountPaid;\\n        user.amountPaid = 0;\\n        bool tokenSuccess = paymentToken.transfer(msg.sender, amountToClaim);\\n        if (!tokenSuccess) {\\n            revert TFailed();\\n        }\\n    }\\n\\n    function getUserInfo(\\n        address _user\\n    ) external view returns (UserInfo memory) {\\n        return userInfo[_user];\\n    }\\n\\n    function getSolarChainCoin() external view returns (address) {\\n        return address(solarChainCoin);\\n    }\\n\\n    function getPaymentToken() external view returns (address) {\\n        return address(paymentToken);\\n    }\\n\\n    function getTokenPrice() external view returns (uint256) {\\n        return tokenPrice;\\n    }\\n\\n    function getHardCap() external view returns (uint256) {\\n        return hardCap;\\n    }\\n\\n    function getSoftCap() external view returns (uint256) {\\n        return softCap;\\n    }\\n\\n    function getStartTime() external view returns (uint256) {\\n        return startTime;\\n    }\\n\\n    function getEndTime() external view returns (uint256) {\\n        return endTime;\\n    }\\n\\n    function getTotalSold() external view returns (uint256) {\\n        return totalSold;\\n    }\\n\\n    function getIsInitiated() external view returns (bool) {\\n        return isInitiated;\\n    }\\n\\n    function getIsSoftCapReached() external view returns (bool) {\\n        return isSoftCapReached;\\n    }\\n\\n    function getIsRefundInitiated() external view returns (bool) {\\n        return isRefundInitiated;\\n    }\\n}\\n\",\"keccak256\":\"0x216b1a2a5dba5fff5329e84af75cc65d7e10cde01e577f2b1d26d81f37893e83\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50604051611edb380380611edb833981810160405281019061003291906102a3565b33600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16036100a55760006040517f1e4fbdf700000000000000000000000000000000000000000000000000000000815260040161009c9190610305565b60405180910390fd5b6100b48161014660201b60201c565b5082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600381905550505050610320565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061023a8261020f565b9050919050565b61024a8161022f565b811461025557600080fd5b50565b60008151905061026781610241565b92915050565b6000819050919050565b6102808161026d565b811461028b57600080fd5b50565b60008151905061029d81610277565b92915050565b6000806000606084860312156102bc576102bb61020a565b5b60006102ca86828701610258565b93505060206102db86828701610258565b92505060406102ec8682870161028e565b9150509250925092565b6102ff8161022f565b82525050565b600060208201905061031a60008301846102f6565b92915050565b611bac8061032f6000396000f3fe608060405234801561001057600080fd5b506004361061014d5760003560e01c8063715018a6116100c3578063c649e1941161007c578063c649e1941461031e578063c828371e1461033c578063d41c3a651461035a578063d4e40d7614610378578063dedf330814610394578063f2fde38b1461039e5761014d565b8063715018a6146102825780638a39fcc61461028c5780638da5cb5b146102a857806395ccea67146102c65780639d7b8e68146102e2578063bf0a07bd146103005761014d565b80634367e557116101155780634367e557146101d2578063439f5ac2146101dc5780634b94f50e146101fa5780634d52a512146102185780636386c1c714610236578063676c0d77146102665761014d565b80630197c68a146101525780631288ab791461015c5780631cb57a741461017a5780631f989e8c146101985780633610724e146101b6575b600080fd5b61015a6103ba565b005b6101646104a9565b60405161017191906116af565b60405180910390f35b6101826104c0565b60405161018f91906116af565b60405180910390f35b6101a06104d7565b6040516101ad91906116af565b60405180910390f35b6101d060048036038101906101cb9190611705565b6104ee565b005b6101da610abe565b005b6101e4610d02565b6040516101f19190611741565b60405180910390f35b610202610d0c565b60405161020f9190611741565b60405180910390f35b610220610d16565b60405161022d9190611741565b60405180910390f35b610250600480360381019061024b91906117ba565b610d20565b60405161025d919061186d565b60405180910390f35b610280600480360381019061027b9190611705565b610df7565b005b61028a610e42565b005b6102a660048036038101906102a19190611888565b610e56565b005b6102b0610e70565b6040516102bd91906118d7565b60405180910390f35b6102e060048036038101906102db91906118f2565b610e99565b005b6102ea610f62565b6040516102f79190611741565b60405180910390f35b610308610f6c565b6040516103159190611741565b60405180910390f35b610326610f76565b60405161033391906118d7565b60405180910390f35b610344610fa0565b6040516103519190611741565b60405180910390f35b610362610faa565b60405161036f91906118d7565b60405180910390f35b610392600480360381019061038d9190611932565b610fd4565b005b61039c611232565b005b6103b860048036038101906103b391906117ba565b611476565b005b6103c26114fc565b600960019054906101000a900460ff1615610409576040517f629c1b6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600754421015610445576040517f1d9fc6b100000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600960029054906101000a900460ff161561048c576040517fa85e6f1a00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6001600960026101000a81548160ff021916908315150217905550565b6000600960029054906101000a900460ff16905090565b6000600960019054906101000a900460ff16905090565b6000600960009054906101000a900460ff16905090565b600960009054906101000a900460ff16610534576040517f6a5221d300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000811161056e576040517fcbca5aa200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000670de0b6b3a76400006003548361058791906119dc565b61059191906119dc565b9050600081116105cd576040517fcbca5aa200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b80600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff1660e01b815260040161062991906118d7565b602060405180830381865afa158015610646573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061066a9190611a33565b10156106a1576040517e1c9fd500000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166323b872dd336106ea610e70565b866040518463ffffffff1660e01b815260040161070993929190611a60565b6020604051808303816000875af1158015610728573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061074c9190611ac3565b905080610785576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b81600860008282546107979190611af0565b92505081905550600554600854106107c5576001600960016101000a81548160ff0219169083151502179055505b6004546008541115610803576040517f9788c34200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050600073ffffffffffffffffffffffffffffffffffffffff168160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16036108e257338160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b828160010160008282546108f69190611af0565b92505081905550838160040160008282546109119190611af0565b92505081905550600960019054906101000a900460ff1615610a0e576000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33866040518363ffffffff1660e01b815260040161098c929190611b24565b6020604051808303816000875af11580156109ab573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109cf9190611ac3565b905080610a08576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b50610a68565b82600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206003016000828254610a609190611af0565b925050819055505b3373ffffffffffffffffffffffffffffffffffffffff167f8fafebcaf9d154343dad25669bfa277f4fbacd7ac6b0c4fed522580e040a0f338585604051610ab0929190611b4d565b60405180910390a250505050565b600960029054906101000a900460ff16610b04576040517fcd65612d00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050600073ffffffffffffffffffffffffffffffffffffffff168160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603610bd1576040517fd996c87f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000816004015411610c0f576040517f0f3f861000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600081600401549050600082600401819055506000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33846040518363ffffffff1660e01b8152600401610c81929190611b24565b6020604051808303816000875af1158015610ca0573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610cc49190611ac3565b905080610cfd576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b505050565b6000600754905090565b6000600354905090565b6000600554905090565b610d2861164f565b600a60008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040518060a00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820154815260200160028201548152602001600382015481526020016004820154815250509050919050565b610dff6114fc565b60008111610e38576040517ebfc92100000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8060038190555050565b610e4a6114fc565b610e546000611583565b565b610e5e6114fc565b81600681905550806007819055505050565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b610ea16114fc565b6005546008541015610edf576040517f2bdc91ad00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8173ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33836040518363ffffffff1660e01b8152600401610f1a929190611b24565b6020604051808303816000875af1158015610f39573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f5d9190611ac3565b505050565b6000600854905090565b6000600454905090565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000600654905090565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b610fdc6114fc565b42821015611016576040517f6f7eac2600000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600960009054906101000a900460ff161561105d576040517f36d80ace00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008511611097576040517fcbca5aa200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000841115806110a8575060008311155b156110df576040517fcadd5a6800000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b836005819055508260048190555081600681905550806007819055506000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166323b872dd3330896040518463ffffffff1660e01b815260040161115c93929190611a60565b6020604051808303816000875af115801561117b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061119f9190611ac3565b9050806111d8576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6001600960006101000a81548160ff0219169083151502179055507f38db0d8c96a5cb6a6c46f19dd2063fc82dd9676b93fa975c37b20c06abf93c20866040516112229190611741565b60405180910390a1505050505050565b600960019054906101000a900460ff16611278576040517f2bdc91ad00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050600073ffffffffffffffffffffffffffffffffffffffff168160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603611345576040517fd996c87f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000816003015411611383576040517f0f3f861000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600081600301549050600082600301819055506000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33846040518363ffffffff1660e01b81526004016113f5929190611b24565b6020604051808303816000875af1158015611414573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906114389190611ac3565b905080611471576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b505050565b61147e6114fc565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16036114f05760006040517f1e4fbdf70000000000000000000000000000000000000000000000000000000081526004016114e791906118d7565b60405180910390fd5b6114f981611583565b50565b611504611647565b73ffffffffffffffffffffffffffffffffffffffff16611522610e70565b73ffffffffffffffffffffffffffffffffffffffff161461158157611545611647565b6040517f118cdaa700000000000000000000000000000000000000000000000000000000815260040161157891906118d7565b60405180910390fd5b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b600033905090565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152602001600081525090565b60008115159050919050565b6116a981611694565b82525050565b60006020820190506116c460008301846116a0565b92915050565b600080fd5b6000819050919050565b6116e2816116cf565b81146116ed57600080fd5b50565b6000813590506116ff816116d9565b92915050565b60006020828403121561171b5761171a6116ca565b5b6000611729848285016116f0565b91505092915050565b61173b816116cf565b82525050565b60006020820190506117566000830184611732565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006117878261175c565b9050919050565b6117978161177c565b81146117a257600080fd5b50565b6000813590506117b48161178e565b92915050565b6000602082840312156117d0576117cf6116ca565b5b60006117de848285016117a5565b91505092915050565b6117f08161177c565b82525050565b6117ff816116cf565b82525050565b60a08201600082015161181b60008501826117e7565b50602082015161182e60208501826117f6565b50604082015161184160408501826117f6565b50606082015161185460608501826117f6565b50608082015161186760808501826117f6565b50505050565b600060a0820190506118826000830184611805565b92915050565b6000806040838503121561189f5761189e6116ca565b5b60006118ad858286016116f0565b92505060206118be858286016116f0565b9150509250929050565b6118d18161177c565b82525050565b60006020820190506118ec60008301846118c8565b92915050565b60008060408385031215611909576119086116ca565b5b6000611917858286016117a5565b9250506020611928858286016116f0565b9150509250929050565b600080600080600060a0868803121561194e5761194d6116ca565b5b600061195c888289016116f0565b955050602061196d888289016116f0565b945050604061197e888289016116f0565b935050606061198f888289016116f0565b92505060806119a0888289016116f0565b9150509295509295909350565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60006119e7826116cf565b91506119f2836116cf565b9250828202611a00816116cf565b91508282048414831517611a1757611a166119ad565b5b5092915050565b600081519050611a2d816116d9565b92915050565b600060208284031215611a4957611a486116ca565b5b6000611a5784828501611a1e565b91505092915050565b6000606082019050611a7560008301866118c8565b611a8260208301856118c8565b611a8f6040830184611732565b949350505050565b611aa081611694565b8114611aab57600080fd5b50565b600081519050611abd81611a97565b92915050565b600060208284031215611ad957611ad86116ca565b5b6000611ae784828501611aae565b91505092915050565b6000611afb826116cf565b9150611b06836116cf565b9250828201905080821115611b1e57611b1d6119ad565b5b92915050565b6000604082019050611b3960008301856118c8565b611b466020830184611732565b9392505050565b6000604082019050611b626000830185611732565b611b6f6020830184611732565b939250505056fea2646970667358221220250c861c3e0c8971431d10395be26610118b737241f332bff7e998ed227ca99f64736f6c634300081c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061014d5760003560e01c8063715018a6116100c3578063c649e1941161007c578063c649e1941461031e578063c828371e1461033c578063d41c3a651461035a578063d4e40d7614610378578063dedf330814610394578063f2fde38b1461039e5761014d565b8063715018a6146102825780638a39fcc61461028c5780638da5cb5b146102a857806395ccea67146102c65780639d7b8e68146102e2578063bf0a07bd146103005761014d565b80634367e557116101155780634367e557146101d2578063439f5ac2146101dc5780634b94f50e146101fa5780634d52a512146102185780636386c1c714610236578063676c0d77146102665761014d565b80630197c68a146101525780631288ab791461015c5780631cb57a741461017a5780631f989e8c146101985780633610724e146101b6575b600080fd5b61015a6103ba565b005b6101646104a9565b60405161017191906116af565b60405180910390f35b6101826104c0565b60405161018f91906116af565b60405180910390f35b6101a06104d7565b6040516101ad91906116af565b60405180910390f35b6101d060048036038101906101cb9190611705565b6104ee565b005b6101da610abe565b005b6101e4610d02565b6040516101f19190611741565b60405180910390f35b610202610d0c565b60405161020f9190611741565b60405180910390f35b610220610d16565b60405161022d9190611741565b60405180910390f35b610250600480360381019061024b91906117ba565b610d20565b60405161025d919061186d565b60405180910390f35b610280600480360381019061027b9190611705565b610df7565b005b61028a610e42565b005b6102a660048036038101906102a19190611888565b610e56565b005b6102b0610e70565b6040516102bd91906118d7565b60405180910390f35b6102e060048036038101906102db91906118f2565b610e99565b005b6102ea610f62565b6040516102f79190611741565b60405180910390f35b610308610f6c565b6040516103159190611741565b60405180910390f35b610326610f76565b60405161033391906118d7565b60405180910390f35b610344610fa0565b6040516103519190611741565b60405180910390f35b610362610faa565b60405161036f91906118d7565b60405180910390f35b610392600480360381019061038d9190611932565b610fd4565b005b61039c611232565b005b6103b860048036038101906103b391906117ba565b611476565b005b6103c26114fc565b600960019054906101000a900460ff1615610409576040517f629c1b6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600754421015610445576040517f1d9fc6b100000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600960029054906101000a900460ff161561048c576040517fa85e6f1a00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6001600960026101000a81548160ff021916908315150217905550565b6000600960029054906101000a900460ff16905090565b6000600960019054906101000a900460ff16905090565b6000600960009054906101000a900460ff16905090565b600960009054906101000a900460ff16610534576040517f6a5221d300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000811161056e576040517fcbca5aa200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000670de0b6b3a76400006003548361058791906119dc565b61059191906119dc565b9050600081116105cd576040517fcbca5aa200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b80600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff1660e01b815260040161062991906118d7565b602060405180830381865afa158015610646573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061066a9190611a33565b10156106a1576040517e1c9fd500000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166323b872dd336106ea610e70565b866040518463ffffffff1660e01b815260040161070993929190611a60565b6020604051808303816000875af1158015610728573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061074c9190611ac3565b905080610785576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b81600860008282546107979190611af0565b92505081905550600554600854106107c5576001600960016101000a81548160ff0219169083151502179055505b6004546008541115610803576040517f9788c34200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050600073ffffffffffffffffffffffffffffffffffffffff168160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16036108e257338160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b828160010160008282546108f69190611af0565b92505081905550838160040160008282546109119190611af0565b92505081905550600960019054906101000a900460ff1615610a0e576000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33866040518363ffffffff1660e01b815260040161098c929190611b24565b6020604051808303816000875af11580156109ab573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109cf9190611ac3565b905080610a08576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b50610a68565b82600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206003016000828254610a609190611af0565b925050819055505b3373ffffffffffffffffffffffffffffffffffffffff167f8fafebcaf9d154343dad25669bfa277f4fbacd7ac6b0c4fed522580e040a0f338585604051610ab0929190611b4d565b60405180910390a250505050565b600960029054906101000a900460ff16610b04576040517fcd65612d00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050600073ffffffffffffffffffffffffffffffffffffffff168160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603610bd1576040517fd996c87f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000816004015411610c0f576040517f0f3f861000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600081600401549050600082600401819055506000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33846040518363ffffffff1660e01b8152600401610c81929190611b24565b6020604051808303816000875af1158015610ca0573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610cc49190611ac3565b905080610cfd576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b505050565b6000600754905090565b6000600354905090565b6000600554905090565b610d2861164f565b600a60008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040518060a00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820154815260200160028201548152602001600382015481526020016004820154815250509050919050565b610dff6114fc565b60008111610e38576040517ebfc92100000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8060038190555050565b610e4a6114fc565b610e546000611583565b565b610e5e6114fc565b81600681905550806007819055505050565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b610ea16114fc565b6005546008541015610edf576040517f2bdc91ad00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8173ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33836040518363ffffffff1660e01b8152600401610f1a929190611b24565b6020604051808303816000875af1158015610f39573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f5d9190611ac3565b505050565b6000600854905090565b6000600454905090565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000600654905090565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b610fdc6114fc565b42821015611016576040517f6f7eac2600000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600960009054906101000a900460ff161561105d576040517f36d80ace00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008511611097576040517fcbca5aa200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000841115806110a8575060008311155b156110df576040517fcadd5a6800000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b836005819055508260048190555081600681905550806007819055506000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166323b872dd3330896040518463ffffffff1660e01b815260040161115c93929190611a60565b6020604051808303816000875af115801561117b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061119f9190611ac3565b9050806111d8576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6001600960006101000a81548160ff0219169083151502179055507f38db0d8c96a5cb6a6c46f19dd2063fc82dd9676b93fa975c37b20c06abf93c20866040516112229190611741565b60405180910390a1505050505050565b600960019054906101000a900460ff16611278576040517f2bdc91ad00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600a60003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050600073ffffffffffffffffffffffffffffffffffffffff168160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603611345576040517fd996c87f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000816003015411611383576040517f0f3f861000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600081600301549050600082600301819055506000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb33846040518363ffffffff1660e01b81526004016113f5929190611b24565b6020604051808303816000875af1158015611414573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906114389190611ac3565b905080611471576040517f098bb06900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b505050565b61147e6114fc565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16036114f05760006040517f1e4fbdf70000000000000000000000000000000000000000000000000000000081526004016114e791906118d7565b60405180910390fd5b6114f981611583565b50565b611504611647565b73ffffffffffffffffffffffffffffffffffffffff16611522610e70565b73ffffffffffffffffffffffffffffffffffffffff161461158157611545611647565b6040517f118cdaa700000000000000000000000000000000000000000000000000000000815260040161157891906118d7565b60405180910390fd5b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b600033905090565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152602001600081525090565b60008115159050919050565b6116a981611694565b82525050565b60006020820190506116c460008301846116a0565b92915050565b600080fd5b6000819050919050565b6116e2816116cf565b81146116ed57600080fd5b50565b6000813590506116ff816116d9565b92915050565b60006020828403121561171b5761171a6116ca565b5b6000611729848285016116f0565b91505092915050565b61173b816116cf565b82525050565b60006020820190506117566000830184611732565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006117878261175c565b9050919050565b6117978161177c565b81146117a257600080fd5b50565b6000813590506117b48161178e565b92915050565b6000602082840312156117d0576117cf6116ca565b5b60006117de848285016117a5565b91505092915050565b6117f08161177c565b82525050565b6117ff816116cf565b82525050565b60a08201600082015161181b60008501826117e7565b50602082015161182e60208501826117f6565b50604082015161184160408501826117f6565b50606082015161185460608501826117f6565b50608082015161186760808501826117f6565b50505050565b600060a0820190506118826000830184611805565b92915050565b6000806040838503121561189f5761189e6116ca565b5b60006118ad858286016116f0565b92505060206118be858286016116f0565b9150509250929050565b6118d18161177c565b82525050565b60006020820190506118ec60008301846118c8565b92915050565b60008060408385031215611909576119086116ca565b5b6000611917858286016117a5565b9250506020611928858286016116f0565b9150509250929050565b600080600080600060a0868803121561194e5761194d6116ca565b5b600061195c888289016116f0565b955050602061196d888289016116f0565b945050604061197e888289016116f0565b935050606061198f888289016116f0565b92505060806119a0888289016116f0565b9150509295509295909350565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60006119e7826116cf565b91506119f2836116cf565b9250828202611a00816116cf565b91508282048414831517611a1757611a166119ad565b5b5092915050565b600081519050611a2d816116d9565b92915050565b600060208284031215611a4957611a486116ca565b5b6000611a5784828501611a1e565b91505092915050565b6000606082019050611a7560008301866118c8565b611a8260208301856118c8565b611a8f6040830184611732565b949350505050565b611aa081611694565b8114611aab57600080fd5b50565b600081519050611abd81611a97565b92915050565b600060208284031215611ad957611ad86116ca565b5b6000611ae784828501611aae565b91505092915050565b6000611afb826116cf565b9150611b06836116cf565b9250828201905080821115611b1e57611b1d6119ad565b5b92915050565b6000604082019050611b3960008301856118c8565b611b466020830184611732565b9392505050565b6000604082019050611b626000830185611732565b611b6f6020830184611732565b939250505056fea2646970667358221220250c861c3e0c8971431d10395be26610118b737241f332bff7e998ed227ca99f64736f6c634300081c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 99,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 266,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "solarChainCoin",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_contract(IERC20)68"
+      },
+      {
+        "astId": 269,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "paymentToken",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_contract(IERC20)68"
+      },
+      {
+        "astId": 271,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "tokenPrice",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 273,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "hardCap",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 275,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "softCap",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 277,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "startTime",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 279,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "endTime",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 281,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "totalSold",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 283,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "isInitiated",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_bool"
+      },
+      {
+        "astId": 285,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "isSoftCapReached",
+        "offset": 1,
+        "slot": "9",
+        "type": "t_bool"
+      },
+      {
+        "astId": 287,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "isRefundInitiated",
+        "offset": 2,
+        "slot": "9",
+        "type": "t_bool"
+      },
+      {
+        "astId": 303,
+        "contract": "contracts/SolarChain.sol:SolarChainICO",
+        "label": "userInfo",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_mapping(t_address,t_struct(UserInfo)298_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IERC20)68": {
+        "encoding": "inplace",
+        "label": "contract IERC20",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_struct(UserInfo)298_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct SolarChainICO.UserInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(UserInfo)298_storage"
+      },
+      "t_struct(UserInfo)298_storage": {
+        "encoding": "inplace",
+        "label": "struct SolarChainICO.UserInfo",
+        "members": [
+          {
+            "astId": 289,
+            "contract": "contracts/SolarChain.sol:SolarChainICO",
+            "label": "user",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 291,
+            "contract": "contracts/SolarChain.sol:SolarChainICO",
+            "label": "tokensPurchased",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 293,
+            "contract": "contracts/SolarChain.sol:SolarChainICO",
+            "label": "tokensClaimed",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 295,
+            "contract": "contracts/SolarChain.sol:SolarChainICO",
+            "label": "remainToClaim",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 297,
+            "contract": "contracts/SolarChain.sol:SolarChainICO",
+            "label": "amountPaid",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

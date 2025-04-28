@@ -5,7 +5,7 @@ const verify = async (contractAddress, args) => {
     await run("verify:verify", {
       address: contractAddress,
       constructorArguments: args,
-      // contract: `contract/EtherealCoin.sol:EtherealCoin`,
+      // contract: `contract/SolarChainCoin.sol:SolarChainCoin`,
     });
   } catch (e) {
     if (e.message.toLowerCase().includes("already verified")) {

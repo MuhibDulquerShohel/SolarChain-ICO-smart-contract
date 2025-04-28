@@ -228,7 +228,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
     }
 }
 
-contract MoonLambo is ERC20 {
+contract SolarChainCoin is ERC20 {
     constructor() ERC20("Solar Chain Coin", "SolarChain") {
         _mint(msg.sender, 1000000000000000000 * 10 ** decimals());
     }
